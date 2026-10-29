@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  p.eyebrow CUSTOM OBJECT · LIVROS
+  h1= recordId ? 'Editar livro' : 'Adicionar livro'
+  p Todos os campos são obrigatórios.
+  if errors.length
+    div.error-box(role="alert")
+      h2 Confira os campos
+      ul
+        each error in errors
+          li= error
+  form.card(method="POST" action="/update-cobj")
+    if recordId
+      input(type="hidden" name="recordId" value=recordId)
+    div.field
+      label(for="name") Título
+      input#name(type="text" name="name" value=values.name || '' maxlength="200" required)
+    div.field
+      label(for="author") Autor
+      input#author(type="text" name="author" value=values.author || '' maxlength="200" required)
+    div.field
+      label(for="genre") Gênero
+      input#genre(type="text" name="genre" value=values.genre || '' maxlength="120" required)
+    div.actions
+      button.button(type="submit")= recordId ? 'Salvar alterações' : 'Cadastrar livro'
+      a(href="/") Return to the homepage

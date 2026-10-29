@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  div.page-heading
+    div
+      p.eyebrow CUSTOM OBJECT · LIVROS
+      h1 Biblioteca
+      p Consulte e cadastre livros na sua conta de teste HubSpot.
+    a.button(href="/update-cobj") Add to this table
+  if data && data.length
+    p= `${data.length} registro(s) nesta página.`
+    div.table-wrapper(role="region" aria-label="Livros cadastrados" tabindex="0")
+      table
+        caption Livros cadastrados no HubSpot
+        thead
+          tr
+            th(scope="col") Título
+            th(scope="col") Autor
+            th(scope="col") Gênero
+            th(scope="col") Ações
+        tbody
+          each book in data
+            tr
+              th(scope="row")= book.properties.name || 'Sem título'
+              td= book.properties.author || '—'
+              td= book.properties.genre || '—'
+              td
+                a(href=`/update-cobj?id=${encodeURIComponent(book.id)}` aria-label=`Editar ${book.properties.name || 'livro'}`) Editar
+  else
+    section.empty
+      h2 Nenhum livro cadastrado
+      p Use o botão Add to this table para criar o primeiro registro.
+  if nextPage
+    nav.pagination(aria-label="Paginação")
+      a.button.secondary(href=nextPage) Próxima página
+  if data && data.length
+    p
+      a(href="/") Voltar ao início da listagem
