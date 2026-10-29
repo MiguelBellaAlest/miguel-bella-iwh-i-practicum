@@ -12,7 +12,7 @@ Três livros foram cadastrados pela UI: Dom Casmurro, O Cortiço e Memórias Pó
 
 ## Como executar
 
-1. Consulte **COMECE_AQUI.md** para o procedimento completo e as regras da Academy.
+1. Utilize somente uma developer test account HubSpot.
 2. Use um fork público chamado `miguel-bella-iwh-i-practicum`, trabalhando em `working-branch`.
 3. Execute `npm ci` com Node.js 20+.
 4. Copie `.env.example` para `.env` e preencha somente o token da conta de teste. Os IDs já estão preenchidos.
