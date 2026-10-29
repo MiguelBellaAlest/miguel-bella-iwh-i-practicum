@@ -1,0 +1,17 @@
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    a.skip-link(href="#main") Pular para o conteúdo
+    header.header
+      div.container
+        a.brand(href="/") Biblioteca · HubSpot
+        p Practicum · Integração com custom objects
+    main#main.container(tabindex="-1")
+      block content
+    footer.container.footer
+      p Ambiente local de estudo. Utilize somente uma developer test account.
